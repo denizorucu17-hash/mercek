@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #ffffff;
+  --color-sheet: #ffffff;
+  --color-ink: #202124;
+  --color-muted: #4d5156;
+  --color-line: #dadce0;
+  --color-chrome: #f1f3f4;
+  --color-tab: #dee1e6;
+  --color-link: #1a0dab;
+  --color-blue: #1a73e8;
+  --color-onblue: #ffffff;
+  --color-gblue: #4285f4;
+  --color-gred: #ea4335;
+  --color-gyellow: #fbbc05;
+  --color-ggreen: #34a853;
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-serif: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  ::selection {
+    background: #c2dbff;
+  }
+}
+
+.shell {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+@keyframes mercek-load {
+  0% {
+    transform: translateX(-70%);
+  }
+  100% {
+    transform: translateX(230%);
+  }
+}
+
+.loadbar {
+  animation: mercek-load 1.1s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loadbar {
+    animation: none;
+    transform: none;
+    width: 100%;
+    opacity: 0.55;
+  }
+}
